@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 	"os"
 )
 
@@ -14,6 +15,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	if message == "" {
 		message = ":( MSG_ENV variable not defined"
 	}
+	// added 20 second delay
+	time.Sleep(20 * time.Second)
 	fmt.Fprintf(w, "<h1>%s</h1>", message)
 }
 
